@@ -11,7 +11,7 @@ public class Emprestimo {
     private LocalDate dataDevolvido;
 
 
-    public Emprestimo(String usuarioId, String livroId, LocalDate dataDevolucao) {
+    public Emprestimo(String usuarioId, String livroId) {
         this.usuarioId = usuarioId;
         this.livroId = livroId;
         this.dataEmprestimo = LocalDate.now();
