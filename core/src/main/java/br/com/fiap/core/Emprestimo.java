@@ -45,4 +45,8 @@ public class Emprestimo {
     public void setDataDevolvido(LocalDate dataDevolvido) {
         this.dataDevolvido = dataDevolvido;
     }
+
+    public void devolver() {
+        this.dataDevolvido = LocalDate.now();
+    }
 }

@@ -5,12 +5,12 @@ import br.com.fiap.application.exception.LivroNaoEncontradoException;
 import br.com.fiap.application.exception.UsuarioNaoEncontradoException;
 import br.com.fiap.application.gateway.CriarEmpretimoGateway;
 import br.com.fiap.core.Emprestimo;
-import br.com.fiap.usecase.CriaEmprestimoUseCase;
+import br.com.fiap.usecase.CriarEmprestimoUseCase;
 import br.com.fiap.usecase.VerificarLivroDisponivelUseCase;
 import br.com.fiap.usecase.VerificarLivroUseCase;
 import br.com.fiap.usecase.VerificarUsuarioUseCase;
 
-public class CriaEmprestimoUseCaseImpl implements CriaEmprestimoUseCase {
+public class CriaEmprestimoUseCaseImpl implements CriarEmprestimoUseCase {
 
     private final VerificarUsuarioUseCase verificarUsuarioUseCase;
     private final VerificarLivroUseCase verificarLivroUseCase;

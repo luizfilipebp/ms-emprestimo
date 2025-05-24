@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: ms-emprestimos
+
+  flyway:
+    locations: classpath:migration
+
+  datasource:
+      url: jdbc:postgresql://localhost:5434/emprestimos
+      username: root
+      password: root
+      driver-class-name: org.postgresql.Driver
+
+  jpa:
+      show-sql: true
+      hibernate:
+          naming:
+              physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+server:
+  tomcat:
+    uri-encoding: UTF-8
+  servlet:
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
