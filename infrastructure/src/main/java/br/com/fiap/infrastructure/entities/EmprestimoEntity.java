@@ -1,10 +1,7 @@
 package br.com.fiap.infrastructure.entities;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,10 +16,11 @@ import java.time.LocalDate;
 public class EmprestimoEntity {
     @Id
     @Column(name = "emp_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "emp_livro_id")
-    private String livroId;
+    private String livroIsbn;
 
     @Column(name = "emp_usuario_id")
     private String usuarioId;

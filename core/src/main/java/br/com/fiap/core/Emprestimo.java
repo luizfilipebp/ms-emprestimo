@@ -16,6 +16,7 @@ public class Emprestimo {
         this.livroIsbn = livroIsbn;
         this.dataEmprestimo = LocalDate.now();
         this.dataDevolucao = LocalDate.now().plusDays(7);
+        this.dataDevolvido = null;
     }
 
     public String getUsuarioId() {

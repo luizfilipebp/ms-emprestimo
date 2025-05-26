@@ -10,22 +10,28 @@ import org.springframework.context.annotation.Configuration;
 public class EmprestimoConfig {
 
     @Bean
-    VerificarEmprestimoUseCase verificarEmprestimoUseCase(VerificaEmprestimoGateway verificaEmprestimoGateway ){
+    VerificarLivroEmprestadoUseCase verificarLivroEmprestadoUseCase(VerificarLivroEmprestadoGateway verificarLivroEmprestadoGateway) {
+        return new VerificarLivroEmprestadoUseCaseImpl(verificarLivroEmprestadoGateway);
+    }
+
+
+    @Bean
+    VerificarEmprestimoUseCase verificarEmprestimoUseCase(VerificaEmprestimoGateway verificaEmprestimoGateway) {
         return new VerificaEmprestimoUseCaseImpl(verificaEmprestimoGateway);
     }
 
     @Bean
-    DevolverEmprestimoUseCase devolverEmprestimoUseCase(VerificarUsuarioUseCase verificarUsuarioUseCase, VerificarLivroUseCase verificarLivroUseCase, VerificarEmprestimoUseCase verificarEmprestimoUseCase, DevolverEmprestimoGateway devolverEmprestimoGateway ){
+    DevolverEmprestimoUseCase devolverEmprestimoUseCase(VerificarUsuarioUseCase verificarUsuarioUseCase, VerificarLivroUseCase verificarLivroUseCase, VerificarEmprestimoUseCase verificarEmprestimoUseCase, DevolverEmprestimoGateway devolverEmprestimoGateway) {
         return new DevolverEmprestimoUseCaseImpl(verificarUsuarioUseCase, verificarLivroUseCase, verificarEmprestimoUseCase, devolverEmprestimoGateway);
     }
 
     @Bean
-    VerificarUsuarioUseCase verificarUsuarioUseCase(VerificaUsuarioGateway verificaUsuarioGateway){
+    VerificarUsuarioUseCase verificarUsuarioUseCase(VerificaUsuarioGateway verificaUsuarioGateway) {
         return new VerificarUsuarioUseCaseImpl(verificaUsuarioGateway);
     }
 
     @Bean
-    VerificarLivroUseCase verificarLivroUseCase(VerificarLivroGateway verificarLivroGateway){
+    VerificarLivroUseCase verificarLivroUseCase(VerificarLivroGateway verificarLivroGateway) {
         return new VerificarLivroUseCaseImpl(verificarLivroGateway);
     }
 
@@ -35,7 +41,7 @@ public class EmprestimoConfig {
     }
 
     @Bean
-    CriarEmprestimoUseCase criarEmprestimoUseCase(VerificarUsuarioUseCase verificarUsuarioUseCase, VerificarLivroUseCase verificarLivroUseCase, VerificarLivroDisponivelUseCase verificarLivroDisponivelUseCase, CriarEmpretimoGateway criarEmprestimoGateway){
-        return new CriaEmprestimoUseCaseImpl(verificarUsuarioUseCase, verificarLivroUseCase, verificarLivroDisponivelUseCase, criarEmprestimoGateway);
+    CriarEmprestimoUseCase criarEmprestimoUseCase(VerificarUsuarioUseCase verificarUsuarioUseCase, VerificarLivroUseCase verificarLivroUseCase, VerificarLivroDisponivelUseCase verificarLivroDisponivelUseCase, VerificarLivroEmprestadoUseCase verificarLivroEmprestadoUseCase, CriarEmpretimoGateway criarEmprestimoGateway) {
+        return new CriaEmprestimoUseCaseImpl(verificarUsuarioUseCase, verificarLivroUseCase, verificarLivroDisponivelUseCase, verificarLivroEmprestadoUseCase, criarEmprestimoGateway);
     }
 }

@@ -3,6 +3,7 @@ package br.com.fiap.infrastructure.service;
 import br.com.fiap.application.exception.EmprestimoNaoEncontradoException;
 import br.com.fiap.application.gateway.DevolverEmprestimoGateway;
 import br.com.fiap.core.Emprestimo;
+import br.com.fiap.infrastructure.entities.EmprestimoEntity;
 import br.com.fiap.infrastructure.mapper.EmprestimoMapper;
 import br.com.fiap.infrastructure.repository.EmprestimoRepository;
 import lombok.AllArgsConstructor;
@@ -19,9 +20,11 @@ public class DevolverEmprestimoGatewayImpl implements DevolverEmprestimoGateway 
 
     @Override
     public void devolverEmprestimo(Emprestimo emprestimo) throws Exception {
-        repository.findByIdUsuarioAndLivroId(emprestimo.getUsuarioId(), emprestimo.getLivroIsbn())
+        EmprestimoEntity emprestimoEntity = repository.findByUsuarioIdAndLivroIsbnAndDataDevolvidoIsNull(emprestimo.getUsuarioId(), emprestimo.getLivroIsbn())
                 .orElseThrow(() -> new EmprestimoNaoEncontradoException("Empréstimo não encontrado"));
 
-        repository.save(EmprestimoMapper.INSTANCE.emprestimoToEmprestimoEntity(emprestimo));
+        emprestimoEntity.setDataDevolvido(emprestimo.getDataDevolvido());
+
+        repository.save(emprestimoEntity);
     }
 }

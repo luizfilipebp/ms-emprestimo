@@ -8,6 +8,6 @@ import java.util.Optional;
 
 public interface EmprestimoRepository extends JpaRepository<EmprestimoEntity, Long> {
 
-    Optional<EmprestimoEntity> findByIdUsuarioAndLivroId(String idUsuario, String livroId);
-    List<EmprestimoEntity> findAllByLivroIdAndDataDevolucaoIsNull(String livroId);
+    Optional<EmprestimoEntity> findByUsuarioIdAndLivroIsbnAndDataDevolvidoIsNull(String idUsuario, String livroId);
+    List<EmprestimoEntity> findAllByLivroIsbnAndDataDevolvidoIsNull(String livroId);
 }

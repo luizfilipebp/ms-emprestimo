@@ -20,7 +20,7 @@ public class VerificaEmprestimoGatewayImpl implements VerificaEmprestimoGateway 
 
     @Override
     public Optional<Emprestimo> verificaEmprestimo(String usuarioId, String livroIsbn) {
-        EmprestimoEntity emprestimo = emprestimoRepository.findByIdUsuarioAndLivroId(usuarioId, livroIsbn).orElseThrow(() -> new EmprestimoNaoEncontradoException("Empréstimo não encontrado"));
+        EmprestimoEntity emprestimo = emprestimoRepository.findByUsuarioIdAndLivroIsbnAndDataDevolvidoIsNull(usuarioId, livroIsbn).orElseThrow(() -> new EmprestimoNaoEncontradoException("Empréstimo não encontrado"));
 
         return Optional.ofNullable(EmprestimoMapper.INSTANCE.emprestimoEntityToEmprestimo(emprestimo));
     }

@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group = 'br.com.fiap.application'
+group = 'br.com.fiap.infrastructure'
 version = '1.0-SNAPSHOT'
 
 repositories {
@@ -16,4 +16,12 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+jar {
+    manifest {
+        attributes(
+            'Main-Class': 'br.com.fiap.infrastructure.MsEmprestimoApplication'
+        )
+    }
 }

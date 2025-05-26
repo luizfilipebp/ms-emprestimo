@@ -10,7 +10,6 @@ public interface EmprestimoMapper {
 
     EmprestimoMapper INSTANCE = Mappers.getMapper(EmprestimoMapper.class);
 
-
     EmprestimoEntity emprestimoToEmprestimoEntity(Emprestimo emprestimo);
     Emprestimo emprestimoEntityToEmprestimo(EmprestimoEntity emprestimoEntity);
 }
