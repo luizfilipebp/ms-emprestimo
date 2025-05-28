@@ -14,6 +14,11 @@ public class EmprestimoConfig {
         return new VerificarLivroEmprestadoUseCaseImpl(verificarLivroEmprestadoGateway);
     }
 
+    @Bean
+    PesquisarLivrosDisponiveisUseCase pesquisarLivrosDisponiveisUseCase(PesquisarLivrosDisponiveisGateway pesquisarLivrosDisponiveisGateway) {
+        return new PesquisarLivrosDisponiveisUseCaseImpl(pesquisarLivrosDisponiveisGateway);
+    }
+
 
     @Bean
     VerificarEmprestimoUseCase verificarEmprestimoUseCase(VerificaEmprestimoGateway verificaEmprestimoGateway) {
